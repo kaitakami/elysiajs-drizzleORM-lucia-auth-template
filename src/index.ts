@@ -4,18 +4,28 @@ import swagger from "@elysiajs/swagger";
 import { Elysia } from "elysia";
 import { autoroutes } from "elysia-autoroutes";
 import { db } from "./db";
+import { env } from "@/env";
 
 const app = new Elysia()
-	.use(cors())
+	.use(
+		cors({
+			origin: "*",
+			methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+			allowedHeaders: ["Content-Type", "Authorization"],
+		}),
+	)
 	.use(swagger())
 	.use(
 		autoroutes({
 			routesDir: "./routes",
 		}),
 	)
-	.decorate("db", db)
-
-	.listen(3000);
+	.decorate({
+		db,
+		logger,
+		env,
+	})
+	.listen(env.SERVER_PORT);
 
 logger.info(
 	`🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`,
