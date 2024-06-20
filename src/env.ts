@@ -5,6 +5,10 @@ export const env = createEnv({
 	clientPrefix: "PUBLIC_",
 	server: {
 		DATABASE_URL: z.string().url(),
+		SERVER_PORT: z
+			.string()
+			.transform((s) => Number.parseInt(s, 10))
+			.pipe(z.number().int().positive()),
 	},
 	client: {},
 	/**
@@ -13,6 +17,8 @@ export const env = createEnv({
 	 */
 	runtimeEnvStrict: {
 		DATABASE_URL: process.env.DATABASE_URL,
+		SERVER_PORT: process.env.SERVER_PORT,
 	},
 	emptyStringAsUndefined: true,
+  isServer: typeof window === "undefined",
 });
