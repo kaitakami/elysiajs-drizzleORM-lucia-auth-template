@@ -18,7 +18,9 @@ export default (app: App) => {
 
 	app.get(
 		"/info",
-		() => {
+		({ logger }) => {
+			logger.info("Getting system info");
+
 			const cpuUsage = process.cpuUsage();
 			const totalMemory = os.totalmem();
 			const freeMemory = os.freemem();
@@ -47,4 +49,3 @@ export default (app: App) => {
 
 	return app;
 };
-
