@@ -12,7 +12,6 @@ export default (app: App) => {
 		}),
 		detail: {
 			description: "The root endpoint",
-			tags: ["Health"],
 		},
 	});
 
@@ -42,7 +41,6 @@ export default (app: App) => {
 			}),
 			detail: {
 				description: "The info endpoint",
-				tags: ["Health"],
 			},
 		},
 	);
