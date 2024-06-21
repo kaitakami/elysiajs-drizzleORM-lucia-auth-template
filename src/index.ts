@@ -18,7 +18,9 @@ const app = new Elysia()
 	.use(swagger())
 	.use(
 		autoroutes({
-			routesDir: env.NODE_ENV === "test" ? path.resolve(__dirname, "routes") : "routes"}),
+			routesDir:
+				env.NODE_ENV === "test" ? path.resolve(__dirname, "routes") : "routes",
+		}),
 	)
 	.decorate({
 		db,
