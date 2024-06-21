@@ -5,6 +5,7 @@ import { Elysia } from "elysia";
 import { autoroutes } from "elysia-autoroutes";
 import { db } from "./db";
 import { env } from "@/env";
+import path from "node:path";
 
 const app = new Elysia()
 	.use(
@@ -17,7 +18,7 @@ const app = new Elysia()
 	.use(swagger())
 	.use(
 		autoroutes({
-			routesDir: "./routes",
+			routesDir: path.resolve(__dirname, "./routes"),
 		}),
 	)
 	.decorate({
