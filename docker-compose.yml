@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  app:
+    container_name: elysia_api
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: release
+    environment:
+      NODE_ENV: production
+    ports:
+      - "3000:3000"
+    user: bun
+    command: ["bun", "start"]
