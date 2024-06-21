@@ -20,5 +20,5 @@ export const env = createEnv({
 		SERVER_PORT: process.env.SERVER_PORT,
 	},
 	emptyStringAsUndefined: true,
-  isServer: typeof window === "undefined",
+	isServer: typeof window === "undefined",
 });
