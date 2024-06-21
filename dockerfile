@@ -27,6 +27,7 @@ ENV NODE_ENV=production
 RUN bun run biome:check
 RUN bun run biome:lint
 RUN bun run biome:format
+RUN bun run test
 RUN bun run build
 
 # copy production dependencies and source code into final image
