@@ -27,7 +27,8 @@ ENV NODE_ENV=production
 RUN bun run biome:check
 RUN bun run biome:lint
 RUN bun run biome:format
-RUN bun run test
+# Set NODE_ENV to test for running tests
+RUN NODE_ENV=test bun run test
 RUN bun run build
 
 # copy production dependencies and source code into final image
@@ -40,4 +41,3 @@ COPY --from=prerelease /usr/src/app/package.json .
 USER bun
 EXPOSE 3000/tcp
 CMD ["bun", "start"]
-
