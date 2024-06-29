@@ -7,15 +7,21 @@ import { db } from "./db";
 import { env } from "@/env";
 import path from "node:path";
 import { error } from "./plugins/error/error";
+import { rateLimit } from "elysia-rate-limit";
 
 const app = new Elysia()
 	.use(
 		cors({
-			origin: "*",
+			origin: ["http://localhost:3000", "http://localhost:3001"],
 			allowedHeaders: ["Content-Type", "Authorization"],
 		}),
 	)
 	.use(swagger())
+	.use(
+		rateLimit({
+			max: 60,
+		}),
+	)
 	.use(
 		autoroutes({
 			routesDir:
