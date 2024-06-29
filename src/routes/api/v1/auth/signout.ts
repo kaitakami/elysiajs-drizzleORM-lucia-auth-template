@@ -35,6 +35,7 @@ export default (app: App) => {
 				description:
 					"The signout endpoint, will invalidate the user's session and clear the session cookie.",
 			},
+			tags: ["auth"],
 		},
 	);
 
