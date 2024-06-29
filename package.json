@@ -34,7 +34,8 @@
   "devDependencies": {
     "@biomejs/biome": "1.8.2",
     "bun-types": "latest",
-    "drizzle-kit": "^0.22.7"
+    "drizzle-kit": "^0.22.7",
+    "pg": "^8.12.0"
   },
   "module": "src/index.js"
 }
