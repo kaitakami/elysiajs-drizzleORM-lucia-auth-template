@@ -6,12 +6,12 @@ import { autoroutes } from "elysia-autoroutes";
 import { db } from "./db";
 import { env } from "@/env";
 import path from "node:path";
+import { error } from "./plugins/error/error";
 
 const app = new Elysia()
 	.use(
 		cors({
 			origin: "*",
-			methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
 			allowedHeaders: ["Content-Type", "Authorization"],
 		}),
 	)
@@ -22,6 +22,7 @@ const app = new Elysia()
 				env.NODE_ENV === "test" ? path.resolve(__dirname, "routes") : "routes",
 		}),
 	)
+	.use(error)
 	.decorate({
 		db,
 		logger,
