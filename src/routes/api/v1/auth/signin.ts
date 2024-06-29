@@ -31,7 +31,10 @@ export default (app: App) => {
 				throw new Error("Password pepper is not set.");
 			}
 
-			const passwordValid = await bunPassword.verify(user.passwordSalt + password + passwordPepper, user.hashedPassword);
+			const passwordValid = await bunPassword.verify(
+				user.passwordSalt + password + passwordPepper,
+				user.hashedPassword,
+			);
 
 			if (!passwordValid) {
 				logger.error("Password is invalid.");
@@ -70,7 +73,8 @@ export default (app: App) => {
 				name: t.String(),
 			}),
 			detail: {
-				description: "The signin endpoint, will authenticate a user and create a session.",
+				description:
+					"The signin endpoint, will authenticate a user and create a session.",
 			},
 		},
 	);

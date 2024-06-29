@@ -32,7 +32,8 @@ export default (app: App) => {
 				message: t.String(),
 			}),
 			detail: {
-				description: "The signout endpoint, will invalidate the user's session and clear the session cookie.",
+				description:
+					"The signout endpoint, will invalidate the user's session and clear the session cookie.",
 			},
 		},
 	);
