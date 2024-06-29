@@ -20,13 +20,12 @@ export const lucia = new Lucia(adapter, {
 			hashedPassword: attributes.hashedPassword,
 		};
 	},
-
 });
 
 declare module "lucia" {
 	interface Register {
 		Lucia: typeof lucia;
-    DatabaseUserAttributes: DatabaseUserAttributes;
+		DatabaseUserAttributes: DatabaseUserAttributes;
 	}
 }
 

@@ -11,12 +11,11 @@ export const users = pgTable("user", {
 	updatedAt: timestamp("updated_at").defaultNow(),
 });
 
-
 export const sessions = pgTable("session", {
 	id: text("id").primaryKey(),
 	userId: text("user_id")
 		.notNull()
-		.references(() => users.id),
+		.references(() => users.id, { onDelete: "cascade" }),
 	expiresAt: timestamp("expires_at", {
 		withTimezone: true,
 		mode: "date",

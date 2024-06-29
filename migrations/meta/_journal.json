@@ -29,6 +29,13 @@
       "when": 1719622416964,
       "tag": "0003_wise_turbo",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1719624450151,
+      "tag": "0004_sour_maelstrom",
+      "breakpoints": true
     }
   ]
 }

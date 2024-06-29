@@ -1,5 +1,5 @@
 import Elysia from "elysia";
-import logger from '@/utils/logger';
+import logger from "@/utils/logger";
 import {
 	BadGatewayException,
 	BadRequestException,
@@ -46,7 +46,7 @@ import {
  */
 
 const error = new Elysia()
-  .decorate("logger", logger)
+	.decorate("logger", logger)
 	.error({
 		BadGatewayException,
 		BadRequestException,
@@ -59,7 +59,7 @@ const error = new Elysia()
 		ServiceUnavailableException,
 		UnauthorizedException,
 	})
-	.onError({ as: "global" }, ctx => {
+	.onError({ as: "global" }, (ctx) => {
 		const { code, error, logger } = ctx;
 
 		switch (code) {

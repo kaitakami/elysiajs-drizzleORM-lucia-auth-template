@@ -20,14 +20,24 @@ const authGuard = new Elysia({
 	})
 	.resolve(
 		{ as: "scoped" },
-		async ({ cookie, headers: { origin, host, authorization }, request: { method } }): Promise<{ user: User }> => {
+		async ({
+			cookie,
+			headers: { origin, host, authorization },
+			request: { method },
+		}): Promise<{ user: User }> => {
 			const sessionCookie = cookie[sessionCookieName];
-			const sessionId: string | null | undefined = lucia.readBearerToken(authorization ?? "") ?? sessionCookie?.value;
+			const sessionId: string | null | undefined =
+				lucia.readBearerToken(authorization ?? "") ?? sessionCookie?.value;
 
 			if (
 				!authorization &&
 				method !== "GET" &&
-				(!origin || !host || !verifyRequestOrigin(origin, ["http://localhost:3000", "localhost:3000"]))
+				(!origin ||
+					!host ||
+					!verifyRequestOrigin(origin, [
+						"http://localhost:3000",
+						"localhost:3000",
+					]))
 			) {
 				throw new ForbiddenException("Invalid origin");
 			}
