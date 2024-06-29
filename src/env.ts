@@ -12,6 +12,7 @@ export const env = createEnv({
 			.string()
 			.transform((s) => Number.parseInt(s, 10))
 			.pipe(z.number().int().positive()),
+		PASSWORD_PEPPER: z.string(),
 	},
 	client: {},
 	/**
@@ -22,6 +23,7 @@ export const env = createEnv({
 		NODE_ENV: process.env.NODE_ENV,
 		DATABASE_URL: process.env.DATABASE_URL,
 		SERVER_PORT: process.env.SERVER_PORT,
+		PASSWORD_PEPPER: process.env.PASSWORD_PEPPER,
 	},
 	emptyStringAsUndefined: true,
 	isServer: typeof window === "undefined",
