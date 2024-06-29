@@ -8,6 +8,27 @@
       "when": 1718925618766,
       "tag": "0000_married_terrax",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1719620410727,
+      "tag": "0001_friendly_multiple_man",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1719620623962,
+      "tag": "0002_rapid_tana_nile",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1719622416964,
+      "tag": "0003_wise_turbo",
+      "breakpoints": true
     }
   ]
 }
